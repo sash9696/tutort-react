@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanilla JS</title>
+</head>
+<body>
+
+    <h1 class="advice"></h1>
+    <button class="btn">Get advice</button>
+    <p>You have read <strong class="count"></strong> pieces of advice</p>
+
+
+    <script>
+
+        //manually select DOM elements
+
+        const adviceEl = document.querySelector('.advice');
+        const btnEle = document.querySelector('.btn');
+        const countEle = document.querySelector('.count');
+
+        async function getAdvice(){
+
+            const resp = await fetch('https://api.adviceslip.com/advice');
+            const data = await resp.json();
+
+            console.log(data)
+
+            advice = data.slip.advice;
+            count = count + 1;
+
+            //manually update the dom elements
+            countEle.textContent = count;
+            adviceEl.textContent = advice;
+        }
+
+        //setting up initial values
+        let count = 0;
+        let advice;
+        getAdvice();
+
+
+        btnEle.addEventListener('click',getAdvice)
+        
+    </script>
+
+    
+</body>
+</html>
