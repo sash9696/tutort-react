@@ -1,0 +1,19 @@
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: lightblue;
+  }
+  
+  .navbar__logo{
+    font-size: 30px;
+  }
+  
+  .navbar__options{
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
